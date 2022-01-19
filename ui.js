@@ -7,13 +7,19 @@ class UI{
         this.icon = document.getElementById('w-icon');
         this.humidity = document.getElementById('w-humidity');
         this.feelsLike = document.getElementById('w-feels-like');
-        this.dewpoint = document.getElementById('w-dewpoint');
+        this.visibility = document.getElementById('w-visibility');
         this.wind = document.getElementById('w-wind');
         
     }
 
     paint(weather){
-        this.location.textContent = weather.name;
+        this.location.textContent = `${weather.name}, ${weather.sys.country}`;
         this.desc.textContent  = weather.weather[0].description;
+        this.string.textContent = `${(weather.main.temp - 273).toFixed(2)} °C`;
+        this.icon.setAttribute('src',`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+        this.humidity.textContent = `Relative Humidity: ${weather.main.humidity} %`;
+        this.feelsLike.textContent = `Feels Like: ${(weather.main.feels_like - 273).toFixed(2)} °C`;
+        this.wind.textContent = `Wind: ${weather.wind.speed} m/s`;
+        this.visibility.textContent = `Wind: ${Math.round(weather.visibility / 1000)} Km`;
     }
 }
