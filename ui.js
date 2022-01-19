@@ -20,6 +20,6 @@ class UI{
         this.humidity.textContent = `Relative Humidity: ${weather.main.humidity} %`;
         this.feelsLike.textContent = `Feels Like: ${(weather.main.feels_like - 273).toFixed(2)} °C`;
         this.wind.textContent = `Wind: ${weather.wind.speed} m/s`;
-        this.visibility.textContent = `Wind: ${Math.round(weather.visibility / 1000)} Km`;
+        this.visibility.textContent = `Visibility: ${Math.round(weather.visibility / 1000)} Km`;
     }
 }
